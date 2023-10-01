@@ -1,0 +1,6 @@
+./source/syscalls.c:// defined in sw/common/crt0.S
+./source/syscalls.c:extern const volatile unsigned int __crt0_main_exit;
+./source/syscalls.c:    // jump to crt0's shutdown code
+./source/syscalls.c:    asm volatile ("la t0, __crt0_main_exit \n"
+Binary file ./source/syscalls.c.o matches
+./include/neorv32_cpu.h:extern void __attribute__ ((weak)) __neorv32_crt0_after_main(int32_t return_code);
