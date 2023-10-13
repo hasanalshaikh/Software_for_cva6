@@ -144,7 +144,6 @@ goto_user_mode:
     80000140:	80008093          	addi	ra,ra,-2048 # 1800 <__neorv32_heap_size+0x1800>
 	csrc	mstatus,ra
     80000144:	3000b073          	csrc	mstatus,ra
-	mret
     80000148:	30200073          	mret
     8000014c:	0000                	unimp
     8000014e:	0000                	unimp
