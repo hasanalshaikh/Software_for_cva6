@@ -11,14 +11,14 @@ ENTRY(_start)
 /* ************************************************************************************************* */
 
 /* Default rom/ram (IMEM/DMEM) sizes */
-/*__neorv32_rom_size = 2048M;*/
-__neorv32_ram_size = 8K;
+/*__neorv32_rom_size = 8K;*/
+__neorv32_ram_size = 4096M;
 
 /* Default HEAP size (= 0; no heap at all) */
 __neorv32_heap_size = 0;
 
 /* Default section base addresses */
-__neorv32_rom_base = 0x00000000; /*TO_DO MAKEFILE START_ADDRESS ARGUMENT*/
+__neorv32_rom_base = 0x00010000; /*TO_DO MAKEFILE START_ADDRESS ARGUMENT*/
 __neorv32_ram_base = 0x80000000;
 
 /* ************************************************************************************************* */
@@ -57,7 +57,7 @@ SECTIONS
     PROVIDE (__etext = .);
     PROVIDE (_etext = .);
     PROVIDE (etext = .);
-  } > ram
+  } > rom
 
 
   /* Second part of the actual executable: read-only data, PLACED RIGHT NEXT to .text using "__etext" symbol */
@@ -70,7 +70,7 @@ SECTIONS
     /* finish section on WORD boundary */
     . = ALIGN(4);
     __RODATA_END__ = .;
-  } > ram
+  } > rom
 
 
   /* initialized read/write data, accessed in RAM, placed in ROM, copied during boot - not part of the final executable */
@@ -86,7 +86,7 @@ SECTIONS
     PROVIDE (edata = .);
     __DATA_END__ = .;
     __global_pointer$ = __DATA_END__ + 0x800;
-  } > ram
+  } > ram AT > rom
 
 
   /* zero/non-initialized read/write data placed in RAM - not part of the final executable */

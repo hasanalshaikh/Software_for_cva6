@@ -48,3 +48,4 @@ Configuration file for openOCD to connect to the NEORV32 on-chip debugger via JT
 
 Contains a CMSIS-SVD compatible system view description file including _all_ peripherals.
 # Software_for_cva6
+# Command for compiling user application

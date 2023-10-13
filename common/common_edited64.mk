@@ -23,7 +23,7 @@ MABI  ?= lp64
 USER_FLAGS ?=
 
 # Relative or absolute path to the NEORV32 home folder
-#NEORV32_HOME ?= ../../..
+NEORV32_HOME ?= ../..
 #NEORV32_LOCAL_RTL ?= $(NEORV32_HOME)/rtl
 
 # GDB arguments
